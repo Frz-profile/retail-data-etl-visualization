@@ -38,10 +38,41 @@ To transform raw retail purchase data into actionable insights by:
 
 ## 🧪 How to Use
 
-1. **Prepare MySQL database**
-   - Create a database named `sample_purchases_pwc`
-   - Update MySQL credentials in `csv_to_MySQL.py`
+1. **Prepare the MySQL Database**
+   - Create a database named `sample_purchases_pwc`.
+   - Update the MySQL credentials and CSV path in `csv_to_MySQL.py`.
 
-2. **Run the Python script**
-   ```bash
-   python csv_to_MySQL.py
+2. **Import the CSV into MySQL**
+   - Run the Python script to load the CSV into a new table:
+     ```bash
+     python csv_to_MySQL.py
+     ```
+   - The script dynamically creates a table (`sales_data`) and populates it with all records from the CSV file.
+
+3. **Validate and Explore the Data**
+   - Open `DataQualityCheck.sql` in MySQL Workbench (or any SQL client).
+   - This script includes:
+     - Total row count checks
+     - Sample record views
+     - Null/missing value analysis on key fields
+     - Aggregated metrics grouped by `Store`, `Brand`, and `Classification` to prepare for visualization
+
+4. **Visualize Insights in Power BI**
+   - Open `PowerBI_DataVisualisation.pbix`.
+   - Connect it to the MySQL database/table (`sales_data` or `samplepurchase`, depending on what you named it).
+   - The dashboard includes:
+     - Store-level and brand-level performance views
+     - Purchase value summaries
+     - Vendor distribution and classification breakdowns
+
+## 📈 Sample Data Columns
+
+- `InventoryId`, `Store`, `Brand`, `Description`, `Size`, `VendorNumber`, `VendorName`
+- `PONumber`, `PODate`, `ReceivingDate`, `InvoiceDate`, `PayDate`
+- `PurchasePrice`, `Quantity`, `Dollars`, `Classification`
+
+## 🔮 Future Improvements
+
+- Add automated data profiling or anomaly detection
+- Schedule periodic ETL with Airflow or Prefect
+- Publish Power BI to Power BI Service with auto-refresh
