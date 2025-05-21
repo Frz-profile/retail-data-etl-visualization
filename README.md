@@ -1,4 +1,4 @@
-# 🛒 Retail Purchases Data Pipeline and Visualization
+# 🛒 Power BI Retail Purchases Data Pipeline and Visualization
 
 This project demonstrates a complete data pipeline—from raw CSV import to data quality validation and final visualization using Power BI.
 
